@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajo ERP - Complete Business Management Solution</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #fff;
+        }
+
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto;
+            padding: 0.5in;
+            background: white;
+            position: relative;
+        }
+
+        /* Cover Page */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 10in;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            padding: 2in 1in;
+        }
+
+        .cover-logo {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        .cover h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cover .tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .cover .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 600px;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        .cover .built-by {
+            position: absolute;
+            bottom: 1in;
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.7;
+        }
+
+        /* Content Pages */
+        h2 {
+            color: #0f172a;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #1e293b;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        h4 {
+            color: #334155;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #475569;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .intro h3 {
+            color: #1e40af;
+            margin-top: 0;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #3b82f6;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            color: #0f172a;
+            margin-top: 0;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-card li {
+            padding: 0.4rem 0;
+            color: #475569;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box h4 {
+            color: #92400e;
+            margin-top: 0;
+        }
+
+        .highlight-box p {
+            color: #78350f;
+            margin-bottom: 0;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h4 {
+            color: #1e40af;
+            margin: 0.5rem 0;
+        }
+
+        .benefit-item p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Module Showcase */
+        .module-showcase {
+            background: white;
+            border: 3px solid #3b82f6;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .module-showcase h3 {
+            color: #1e40af;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .feature-list {
+            columns: 2;
+            column-gap: 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.3rem 0;
+            color: #475569;
+            position: relative;
+            padding-left: 1.5rem;
+            break-inside: avoid;
+        }
+
+        .feature-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta h3 {
+            color: white;
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3b82f6;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 2px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3b82f6;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #2563eb;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="window.print()" class="print-button no-print">🖨️ Print to PDF</button>
+
+    <!-- COVER PAGE -->
+    <div class="page cover">
+        <img src="/cajo_a.png" alt="Cajo Technologies Logo" class="cover-logo">
+        <h1>Cajo ERP</h1>
+        <p class="tagline">Complete Business Management Solution</p>
+        <p class="subtitle">
+            Transform your business operations with our comprehensive ERP system.
+            From inventory and manufacturing to sales and customer management—everything you need in one powerful platform.
+        </p>
+    </div>
+
+    <!-- PAGE 1: INTRODUCTION & OVERVIEW -->
+    <div class="page page-break">
+        <h2>Welcome to the Future of Business Management</h2>
+
+        <div class="intro">
+            <h3>All-in-One Solution for Modern Businesses</h3>
+            <p>
+                Cajo ERP is a comprehensive enterprise resource planning system designed to streamline
+                every aspect of your business operations. Built with cutting-edge technology and
+                real-time capabilities, our platform empowers businesses to work smarter, faster, and more efficiently.
+            </p>
+        </div>
+
+        <h3>Why Choose Cajo ERP?</h3>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h4>Real-Time Updates</h4>
+                <p>Instant data synchronization across all modules</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🔒</div>
+                <h4>Enterprise Security</h4>
+                <p>Bank-level encryption and role-based access control</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📱</div>
+                <h4>Cloud-Based</h4>
+                <p>Access from anywhere, anytime, on any device</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎯</div>
+                <h4>Complete Traceability</h4>
+                <p>Track every product from raw materials to delivery</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📊</div>
+                <h4>Powerful Analytics</h4>
+                <p>Real-time insights and comprehensive reporting</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🚀</div>
+                <h4>Scalable Growth</h4>
+                <p>Grows with your business needs</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span class="stat-number">8+</span>
+                <span class="stat-label">Major Modules</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">40+</span>
+                <span class="stat-label">Features</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Cloud-Based</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Availability</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: CORE MODULES -->
+    <div class="page page-break">
+        <h2>Core Business Modules</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h4>Inventory Management</h4>
+                <ul>
+                    <li>Complete item master data</li>
+                    <li>Stock level monitoring & alerts</li>
+                    <li>Serial number tracking</li>
+                    <li>Cost tracking & averaging</li>
+                    <li>Purchase history & analytics</li>
+                    <li>Multi-location support</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏭</div>
+                <h4>Manufacturing</h4>
+                <ul>
+                    <li>Bill of Materials (BOM) builder</li>
+                    <li>Assembly management</li>
+                    <li>Component tracking</li>
+                    <li>FIFO inventory consumption</li>
+                    <li>Complete traceability</li>
+                    <li>Unit serialization</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h4>Sales & CRM</h4>
+                <ul>
+                    <li>Lead management</li>
+                    <li>Prospect tracking</li>
+                    <li>Customer database</li>
+                    <li>Sales order processing</li>
+                    <li>Delivery management</li>
+                    <li>Customer portal access</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛒</div>
+                <h4>Procurement</h4>
+                <ul>
+                    <li>Vendor management</li>
+                    <li>Purchase order creation</li>
+                    <li>Multi-item purchases</li>
+                    <li>Lead time tracking</li>
+                    <li>Vendor performance ratings</li>
+                    <li>Automated cost updates</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h4>🌟 Complete Integration</h4>
+            <p>
+                All modules work seamlessly together. When you receive a purchase, inventory updates automatically.
+                When you assemble products, components are consumed using FIFO logic. When you deliver to customers,
+                stock levels adjust in real-time. Everything is connected.
+            </p>
+        </div>
+    </div>
+
+    <!-- PAGE 3: ADVANCED FEATURES -->
+    <div class="page page-break">
+        <h2>Advanced Features & Capabilities</h2>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">🔍</span>
+                Complete Product Traceability
+            </h3>
+            <p>Track every component from vendor to finished product to customer delivery. Know exactly which vendor supplied which component in which unit, when it was assembled, and where it was delivered.</p>
+            <ul class="feature-list">
+                <li>Component-to-unit mapping</li>
+                <li>Serial number tracking</li>
+                <li>Vendor source tracking</li>
+                <li>Assembly date/time stamps</li>
+                <li>Delivery confirmation</li>
+                <li>Complete audit trail</li>
+                <li>Batch/lot tracking</li>
+                <li>Quality assurance support</li>
+            </ul>
+        </div>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">👥</span>
+                Customer Portal
+            </h3>
+            <p>Give your customers their own portal to track orders, monitor device status, and report issues—all without contacting your support team.</p>
+            <ul class="feature-list">
+                <li>Real-time device monitoring</li>
+                <li>QR code scanning for quick access</li>
+                <li>Online/offline status tracking</li>
+                <li>Support ticket creation</li>
+                <li>Order history visibility</li>
+                <li>Delivery tracking</li>
+                <li>Self-service support</li>
+                <li>Multi-device management</li>
+            </ul>
+        </div>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">📊</span>
+                Analytics & Reporting
+            </h3>
+            <p>Make data-driven decisions with comprehensive reporting and real-time analytics across all business operations.</p>
+            <ul class="feature-list">
+                <li>Stock level dashboards</li>
+                <li>Vendor performance metrics</li>
+                <li>Sales pipeline visibility</li>
+                <li>Manufacturing efficiency</li>
+                <li>Cost analysis reports</li>
+                <li>Activity logs & audit trails</li>
+                <li>Custom date ranges</li>
+                <li>Export capabilities</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- PAGE 4: SECURITY & ADMINISTRATION -->
+    <div class="page page-break">
+        <h2>Security, Administration & Support</h2>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">🔐</span>
+                Enterprise-Grade Security
+            </h3>
+            <p>Your data security is our top priority. Built with industry-leading security practices and compliance standards.</p>
+            <ul class="feature-list">
+                <li>Row-level security (RLS)</li>
+                <li>Role-based access control (RBAC)</li>
+                <li>Encrypted data storage</li>
+                <li>Secure authentication</li>
+                <li>Activity audit trails</li>
+                <li>Customer data isolation</li>
+                <li>Password policies</li>
+                <li>Session management</li>
+            </ul>
+        </div>
+
+        <h3>User Roles & Permissions</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">👑</div>
+                <h4>Administrator</h4>
+                <ul>
+                    <li>Full system access</li>
+                    <li>User management</li>
+                    <li>Settings configuration</li>
+                    <li>Data administration</li>
+                    <li>Bulk operations</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👤</div>
+                <h4>Standard User</h4>
+                <ul>
+                    <li>Inventory management</li>
+                    <li>Sales & procurement</li>
+                    <li>Manufacturing operations</li>
+                    <li>Reporting access</li>
+                    <li>Activity logging</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h4>Manager</h4>
+                <ul>
+                    <li>Customer account management</li>
+                    <li>Team oversight</li>
+                    <li>Customer portal access</li>
+                    <li>Ticket management</li>
+                    <li>Performance metrics</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h4>Client/Customer</h4>
+                <ul>
+                    <li>Device monitoring</li>
+                    <li>Order tracking</li>
+                    <li>Support tickets</li>
+                    <li>Status updates</li>
+                    <li>Self-service portal</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h4>💬 Built-in Communication Tools</h4>
+            <p>
+                Internal messaging system with file attachments, read receipts, and real-time delivery.
+                Keep your team connected without leaving the platform.
+            </p>
+        </div>
+    </div>
+
+    <!-- PAGE 5: UNIQUE ADVANTAGES -->
+    <div class="page page-break">
+        <h2>What Makes Cajo ERP Different</h2>
+
+        <h3>🎯 Industry-Leading Features</h3>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">📈</span>
+                Smart Cost Management
+            </h3>
+            <p>Intelligent cost tracking that adapts to your purchasing patterns:</p>
+            <ul class="feature-list">
+                <li>Weighted average cost calculation</li>
+                <li>Automatic cost updates on receipt</li>
+                <li>Min/max cost tracking</li>
+                <li>Historical cost analysis</li>
+                <li>Lead time averaging</li>
+                <li>Vendor price comparison</li>
+                <li>Stock valuation reports</li>
+                <li>Cost trend analysis</li>
+            </ul>
+        </div>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">🔄</span>
+                FIFO Inventory Management
+            </h3>
+            <p>First-In, First-Out logic ensures proper inventory rotation and accurate cost tracking:</p>
+            <ul class="feature-list">
+                <li>Automatic lot selection</li>
+                <li>Component age tracking</li>
+                <li>Expiry management ready</li>
+                <li>Receipt order enforcement</li>
+                <li>Accurate COGS calculation</li>
+                <li>Batch traceability</li>
+                <li>Quality control support</li>
+                <li>Compliance reporting</li>
+            </ul>
+        </div>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">⚡</span>
+                Real-Time Synchronization
+            </h3>
+            <p>See changes as they happen across your entire organization:</p>
+            <ul class="feature-list">
+                <li>Live inventory updates</li>
+                <li>Instant stock alerts</li>
+                <li>Real-time order status</li>
+                <li>Live manufacturing updates</li>
+                <li>Instant messaging delivery</li>
+                <li>Device status monitoring</li>
+                <li>Synchronized team views</li>
+                <li>No page refresh needed</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h4>🌙 Dark Mode Support</h4>
+            <p>
+                Reduce eye strain with full dark mode support across the entire platform.
+                Perfect for extended work sessions and low-light environments.
+            </p>
+        </div>
+    </div>
+
+    <!-- PAGE 6: SALES & CRM DETAIL -->
+    <div class="page page-break">
+        <h2>Sales & Customer Relationship Management</h2>
+
+        <div class="intro">
+            <h3>Complete Sales Pipeline Management</h3>
+            <p>
+                Manage your entire sales process from first contact to loyal customer.
+                Track leads, nurture prospects, and deliver exceptional customer experiences.
+            </p>
+        </div>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">🎯</span>
+                Lead Management
+            </h3>
+            <ul class="feature-list">
+                <li>Lead capture and tracking</li>
+                <li>Source attribution</li>
+                <li>Lead value estimation</li>
+                <li>Status workflow management</li>
+                <li>Assignment to sales team</li>
+                <li>Activity history</li>
+                <li>Lead scoring potential</li>
+                <li>Conversion tracking</li>
+                <li>Search and filtering</li>
+                <li>Notes and comments</li>
+            </ul>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <h4>Prospect Management</h4>
+                <ul>
+                    <li>Qualified prospect tracking</li>
+                    <li>Demo scheduling</li>
+                    <li>Proposal management</li>
+                    <li>Deal value tracking</li>
+                    <li>Conversion to customer</li>
+                    <li>Win/loss analysis</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <h4>Customer Management</h4>
+                <ul>
+                    <li>Complete customer profiles</li>
+                    <li>Contact information</li>
+                    <li>Purchase history</li>
+                    <li>Lifetime value tracking</li>
+                    <li>Status monitoring</li>
+                    <li>Account assignments</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h4>Sales Orders</h4>
+                <ul>
+                    <li>Quick order creation</li>
+                    <li>Product selection</li>
+                    <li>Serial number assignment</li>
+                    <li>Multi-item orders</li>
+                    <li>Order tracking</li>
+                    <li>Delivery coordination</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h4>Delivery Management</h4>
+                <ul>
+                    <li>Delivery scheduling</li>
+                    <li>Address tracking</li>
+                    <li>Partial deliveries</li>
+                    <li>Delivery confirmation</li>
+                    <li>Installation tracking</li>
+                    <li>Customer notifications</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 7: CONFIGURATION & CUSTOMIZATION -->
+    <div class="page page-break">
+        <h2>Configuration & Customization</h2>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">⚙️</span>
+                Flexible Data Setup
+            </h3>
+            <p>Customize the system to match your business terminology and workflows:</p>
+            <ul class="feature-list">
+                <li>Configurable vendor groups</li>
+                <li>Custom item classifications</li>
+                <li>Custom item groups</li>
+                <li>Lead status definitions</li>
+                <li>Prospect stage naming</li>
+                <li>Customer status types</li>
+                <li>Currency management</li>
+                <li>Dropdown value management</li>
+                <li>Unit of measure definitions</li>
+                <li>Taxonomy customization</li>
+            </ul>
+        </div>
+
+        <h3>Data Management Tools</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📤</div>
+                <h4>Bulk Upload</h4>
+                <ul>
+                    <li>CSV import support</li>
+                    <li>Bulk item creation</li>
+                    <li>Bulk vendor import</li>
+                    <li>Customer data import</li>
+                    <li>Device data import</li>
+                    <li>Validation before import</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📥</div>
+                <h4>Data Export</h4>
+                <ul>
+                    <li>Export to standard formats</li>
+                    <li>Scheduled backups</li>
+                    <li>Custom date ranges</li>
+                    <li>Filtered exports</li>
+                    <li>Report generation</li>
+                    <li>Audit trail exports</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h4>Activity Logging</h4>
+                <ul>
+                    <li>Complete audit trail</li>
+                    <li>User action tracking</li>
+                    <li>Timestamp recording</li>
+                    <li>Change detail capture</li>
+                    <li>Searchable logs</li>
+                    <li>Compliance reporting</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">❓</div>
+                <h4>Help System</h4>
+                <ul>
+                    <li>Built-in knowledge base</li>
+                    <li>Contextual help articles</li>
+                    <li>FAQ sections</li>
+                    <li>How-to guides</li>
+                    <li>Troubleshooting docs</li>
+                    <li>Search functionality</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h4>🔧 System Administration</h4>
+            <p>
+                Comprehensive admin tools including user management, permissions control,
+                bulk operations, and system configuration—all in one centralized settings panel.
+            </p>
+        </div>
+    </div>
+
+    <!-- PAGE 8: TECHNICAL EXCELLENCE -->
+    <div class="page page-break">
+        <h2>Built with Modern Technology</h2>
+
+        <div class="intro">
+            <h3>Enterprise-Grade Architecture</h3>
+            <p>
+                Powered by cutting-edge cloud technology, Cajo ERP delivers exceptional performance,
+                reliability, and scalability. Built on Supabase with PostgreSQL, our platform provides
+                real-time capabilities and enterprise-grade security out of the box.
+            </p>
+        </div>
+
+        <h3>Technical Highlights</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">☁️</div>
+                <h4>Cloud-Native</h4>
+                <ul>
+                    <li>100% cloud-based</li>
+                    <li>No installation required</li>
+                    <li>Automatic updates</li>
+                    <li>Global availability</li>
+                    <li>99.9% uptime SLA</li>
+                    <li>Disaster recovery</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h4>Real-Time Engine</h4>
+                <ul>
+                    <li>WebSocket connections</li>
+                    <li>Instant data sync</li>
+                    <li>Live updates</li>
+                    <li>No polling required</li>
+                    <li>Collaborative features</li>
+                    <li>Event-driven architecture</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🗄️</div>
+                <h4>PostgreSQL Database</h4>
+                <ul>
+                    <li>Robust data integrity</li>
+                    <li>ACID compliance</li>
+                    <li>Advanced querying</li>
+                    <li>JSON support</li>
+                    <li>Full-text search</li>
+                    <li>Scalable performance</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h4>Security First</h4>
+                <ul>
+                    <li>Row-level security</li>
+                    <li>Encrypted at rest</li>
+                    <li>TLS/SSL encryption</li>
+                    <li>Regular security audits</li>
+                    <li>Compliance ready</li>
+                    <li>Backup encryption</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">📱</span>
+                Responsive Design
+            </h3>
+            <p>Access Cajo ERP from any device—desktop, tablet, or smartphone:</p>
+            <ul class="feature-list">
+                <li>Mobile-optimized interface</li>
+                <li>Touch-friendly controls</li>
+                <li>Adaptive layouts</li>
+                <li>QR code scanning (mobile)</li>
+                <li>Offline capability (planned)</li>
+                <li>Progressive web app (PWA)</li>
+                <li>Cross-browser compatibility</li>
+                <li>Fast loading times</li>
+            </ul>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span class="stat-number">23</span>
+                <span class="stat-label">Database Tables</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Real-Time</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Scalability</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">🔒</span>
+                <span class="stat-label">Secure</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 9: USE CASES & BENEFITS -->
+    <div class="page page-break">
+        <h2>Perfect For Your Business</h2>
+
+        <h3>Who Benefits from Cajo ERP?</h3>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">🏭</span>
+                Manufacturers
+            </h3>
+            <ul class="feature-list">
+                <li>Complete BOM management</li>
+                <li>Assembly tracking and control</li>
+                <li>Component traceability</li>
+                <li>Quality assurance support</li>
+                <li>FIFO inventory consumption</li>
+                <li>Serial number management</li>
+                <li>Production efficiency tracking</li>
+                <li>Cost control and analysis</li>
+            </ul>
+        </div>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">📦</span>
+                Distributors & Wholesalers
+            </h3>
+            <ul class="feature-list">
+                <li>Multi-vendor management</li>
+                <li>Purchase order automation</li>
+                <li>Stock level optimization</li>
+                <li>Vendor performance tracking</li>
+                <li>Cost averaging and analysis</li>
+                <li>Delivery management</li>
+                <li>Customer portal for clients</li>
+                <li>Real-time inventory visibility</li>
+            </ul>
+        </div>
+
+        <div class="module-showcase">
+            <h3>
+                <span class="module-icon">💼</span>
+                Service & Technology Companies
+            </h3>
+            <ul class="feature-list">
+                <li>Device/equipment tracking</li>
+                <li>Customer self-service portal</li>
+                <li>Support ticket management</li>
+                <li>Installation tracking</li>
+                <li>Online/offline monitoring</li>
+                <li>QR code device identification</li>
+                <li>Lead and prospect management</li>
+                <li>Complete customer lifecycle</li>
+            </ul>
+        </div>
+
+        <h3>Key Business Benefits</h3>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h4>Cost Savings</h4>
+                <ul>
+                    <li>Reduce inventory carrying costs</li>
+                    <li>Optimize purchasing decisions</li>
+                    <li>Minimize waste through FIFO</li>
+                    <li>Track vendor pricing trends</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h4>Time Efficiency</h4>
+                <ul>
+                    <li>Automate manual processes</li>
+                    <li>Real-time data access</li>
+                    <li>Reduce data entry errors</li>
+                    <li>Streamline operations</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h4>Better Decisions</h4>
+                <ul>
+                    <li>Real-time business insights</li>
+                    <li>Comprehensive reporting</li>
+                    <li>Historical trend analysis</li>
+                    <li>Vendor performance metrics</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">😊</div>
+                <h4>Happy Customers</h4>
+                <ul>
+                    <li>Faster order fulfillment</li>
+                    <li>Self-service portal</li>
+                    <li>Transparent communication</li>
+                    <li>Proactive support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 10: CALL TO ACTION -->
+    <div class="page page-break">
+        <h2>Ready to Transform Your Business?</h2>
+
+        <div class="intro">
+            <h3>Experience the Power of Integrated Business Management</h3>
+            <p>
+                Join forward-thinking companies that have already transformed their operations with Cajo ERP.
+                From inventory and manufacturing to sales and customer management, everything you need is here.
+            </p>
+        </div>
+
+        <div class="cta">
+            <h3>Get Started Today</h3>
+            <p>
+                See how Cajo ERP can streamline your operations, reduce costs, and accelerate growth.
+                Contact us for a personalized demo and discover the difference.
+            </p>
+            <a href="#contact" class="cta-button">Request a Demo</a>
+        </div>
+
+        <h3>What You Get</h3>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">✅</div>
+                <h4>Complete Setup</h4>
+                <p>Full system configuration and data migration assistance</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📚</div>
+                <h4>Training</h4>
+                <p>Comprehensive user training for your team</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎯</div>
+                <h4>Customization</h4>
+                <p>Tailor the system to your business needs</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💬</div>
+                <h4>Support</h4>
+                <p>Dedicated support team available when you need help</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🔄</div>
+                <h4>Updates</h4>
+                <p>Regular feature updates and improvements</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🔒</div>
+                <h4>Security</h4>
+                <p>Enterprise-grade security and compliance</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h4>💡 Implementation Made Easy</h4>
+            <p>
+                Our team works with you every step of the way—from initial setup through go-live and beyond.
+                We ensure a smooth transition and help your team get up to speed quickly.
+            </p>
+        </div>
+
+        <h3>System Features Recap</h3>
+        <div class="stats">
+            <div class="stat-box">
+                <span class="stat-number">8+</span>
+                <span class="stat-label">Core Modules</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">40+</span>
+                <span class="stat-label">Features</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">23+</span>
+                <span class="stat-label">Database Tables</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Possibilities</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <img src="/cajo_a.png" alt="Cajo Technologies" style="width: 60px; height: 60px; margin-bottom: 1rem;">
+            <h3 style="margin: 0.5rem 0; color: #0f172a;">Cajo ERP</h3>
+            <p style="margin: 0.5rem 0;">Complete Business Management Solution</p>
+            <p style="margin: 1rem 0; font-size: 0.8rem;">
+                © 2024 Cajo Technologies. All rights reserved.<br>
+                Cloud-based ERP | Real-Time | Secure | Scalable
+            </p>
+        </div>
+    </div>
+</body>
+</html>

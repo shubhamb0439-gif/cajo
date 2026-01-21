@@ -1,0 +1,36 @@
+{
+  "name": "Cajo ERP - Inventory & Manufacturing",
+  "short_name": "Cajo ERP",
+  "description": "Professional ERP system for inventory, purchasing, and manufacturing management",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/cajo_a.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "/",
+      "description": "View dashboard"
+    },
+    {
+      "name": "Inventory",
+      "url": "/inventory",
+      "description": "Manage inventory items"
+    },
+    {
+      "name": "Manufacturing",
+      "url": "/manufacturing",
+      "description": "Manufacturing operations"
+    }
+  ]
+}
